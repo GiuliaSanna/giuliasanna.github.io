@@ -75,6 +75,14 @@ html {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
+.btn-color-2.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  pointer-events: none; 
+  border: 1px solid grey;
+  color: white;
+}
+
 .icon {
   cursor: pointer;
   height: 2rem;

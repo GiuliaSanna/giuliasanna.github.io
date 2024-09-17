@@ -40,30 +40,27 @@
         <h1 class="title">Journey</h1>
         <div class="row">
           <div class="col-md-4 mb-4">
-            <div class="course-card">
+            <div class="course-card" onclick="openPopup('./assets/breccia_certificate.png', 'Talent Garden: Diventare un designer', 'Data di rilascio: 20/05/2024', './assets/breccia_certificate.pdf')">
               <img src="./assets/course_breccia.jpg" alt="UI/UX Design: Diventare un designer" class="course-image">
               <div class="course-info">
                 <h2 class="course-title">UI/UX Design: Diventare un designer</h2>
               </div>
-              <a href="https://drive.google.com/file/d/19ZfbLpPT_LtQGZ7xUpOdpF6F81eIf2GU/view?usp=sharing" class="course-link" aria-label="Vai all'attestato di UI/UX Design: Diventare un designer"></a>
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <div class="course-card">
+            <div class="course-card" onclick="openPopup('./assets/start2impact_course.png', 'Start2Impact: UX/UI Designer', 'Data di rilascio: IN CORSO', '')">
               <img src="./assets/start2impact_course.png" alt="UI/UX Design: Start2Impact" class="course-image">
               <div class="course-info">
                 <h2 class="course-title">UI/UX Design: Start2Impact (Ongoing)</h2>
               </div>
-              <a href="https://www.start2impact.it/master/ux-ui-design/" class="course-link"></a>
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <div class="course-card">
+            <div class="course-card" onclick="openPopup('./assets/english_certificate.png', 'English with Giulia', 'Data di rilascio: 26/08/2024', './assets/english_certificate.pdf')">
               <img src="./assets/english_course.webp" alt="English: English with Giulia" class="course-image">
               <div class="course-info">
                 <h2 class="course-title">English: English with Giulia</h2>
               </div>
-              <a href="https://drive.google.com/file/d/1qv7ER4HORhW5Fgm0f_0nQ-2_PNE-8I27/view?usp=sharing" class="course-link" aria-label="Vai all'attestato di English: English with Giulia"></a>
             </div>
           </div>
         </div>
@@ -71,9 +68,55 @@
     </section>
   </div>
 
+  <div id="certificate-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <img id="certificate-image" src="" alt="Certificato" class="popup-image">
+      <h2 id="certificate-title">Titolo del corso</h2>
+      <p id="certificate-details">Codice corso - Ente formativo</p>
+      <a id="certificate-download" href="#" class="btn btn-color-2" download>Scarica PDF</a>
+    </div>
+  </div>
+
   <footer>
     <p>Copyright &#169; 2023 Giulia Sanna. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    function openPopup(imageSrc, title, details, pdfLink) {
+      const popup = document.getElementById("certificate-popup");
+      const downloadButton = document.getElementById("certificate-download");
+  
+      document.getElementById("certificate-image").src = imageSrc;
+      document.getElementById("certificate-title").textContent = title;
+      document.getElementById("certificate-details").textContent = details;
+  
+      if (pdfLink === '' || pdfLink === null) {
+        downloadButton.href = '#';
+        downloadButton.classList.add("disabled");
+        downloadButton.setAttribute("aria-disabled", "true");
+        downloadButton.textContent = "PDF non disponibile";
+      } else {
+        downloadButton.href = pdfLink;
+        downloadButton.classList.remove("disabled");
+        downloadButton.setAttribute("aria-disabled", "false");
+        downloadButton.textContent = "Scarica PDF";
+      }
+  
+      popup.style.display = "flex";
+    }
+  
+    document.querySelector(".close-popup").onclick = function () {
+      document.getElementById("certificate-popup").style.display = "none";
+    };
+
+    window.onclick = function(event) {
+      const popup = document.getElementById("certificate-popup");
+      if (event.target == popup) {
+        popup.style.display = "none";
+      }
+    };
+  </script>
 
   <script src="script.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

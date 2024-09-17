@@ -110,3 +110,76 @@ footer {
 .course-card:nth-child(3) {
     animation-delay: 0.3s;
 }
+
+/* Stile per il popup */
+.popup {
+    display: none; /* Nascosto di default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    animation: popup-fadein 0.4s ease;
+  }
+  
+  .popup-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  .close-popup {
+    position: absolute;
+    top: -20px; /* Sposta la "X" sopra il popup */
+    right: -20px; /* Sposta la "X" fuori a destra del popup */
+    font-size: 30px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo nero semitrasparente */
+    color: white;
+    border-radius: 50%; /* Crea un cerchio */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-popup:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo più scuro al passaggio del mouse */
+  }
+  
+  .popup h2, .popup p, .popup a {
+    color: black;
+  }
+  
+  /* Animazione di entrata */
+  @keyframes popup-fadein {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .btn-download:hover {
+    background-color: #444;
+  }
